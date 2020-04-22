@@ -1,18 +1,30 @@
 import time
 import sys
 from PyQt5.QtWidgets import QApplication,QMainWindow,QPushButton
+from PyQt5 import uic
+from PyQt5.QtCore import pyqtSignal,pyqtSlot
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 
+#------------------------------------------
+from Hesap import HesapBilgi
+
 class Uygulama(QMainWindow):
+    loginBilgi = pyqtSignal(list)
     def __init__(self):
         super().__init__()
-        self.Goster()
+        uic.loadUi(r"UI\AnaMenu.ui",self)  
+        self.Goster()       
+
+              
     def Goster(self):
-        self.setGeometry(100,100,400,400)
-        dugme = QPushButton("   Aç ",self)
-        dugme.clicked.connect(self.git)
+        self.actionHesap_Bilgileri.triggered.connect(self.HesapWinAc)
+        self.loginBilgi.emit(["1","12123"])
         self.show()
+
+    def HesapWinAc(self):
+        self.hesapBilgi.Hesap.show()
+
 
     def git(self):
         self.browser = webdriver.Firefox(executable_path=r"Driver\geckodriver.exe")
