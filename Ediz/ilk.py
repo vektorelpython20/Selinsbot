@@ -15,7 +15,7 @@ class Uygulama(QMainWindow):
         self.show()
 
     def git(self):
-        self.browser = webdriver.Firefox()
+        self.browser = webdriver.Firefox(executable_path=r"Driver\geckodriver.exe")
         self.browser.get("https://www.instagram.com")
 
 
