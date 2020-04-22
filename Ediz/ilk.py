@@ -7,23 +7,24 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 
 #------------------------------------------
-from Hesap import HesapBilgi
+# from Hesap import HesapBilgi
 
 class Uygulama(QMainWindow):
-    loginBilgi = pyqtSignal(list)
+
     def __init__(self):
         super().__init__()
-        uic.loadUi(r"UI\AnaMenu.ui",self)  
+        uic.loadUi(r"UI\AnaMenu.ui",self)
+        self.bilgi = "deneme"
         self.Goster()       
 
               
     def Goster(self):
-        self.actionHesap_Bilgileri.triggered.connect(self.HesapWinAc)
-        self.loginBilgi.emit(["1","12123"])
+        # self.actionHesap_Bilgileri.triggered.connect(self.HesapWinAc)
         self.show()
 
-    def HesapWinAc(self):
-        self.hesapBilgi.Hesap.show()
+    # def HesapWinAc(self):
+    #     self.hesapBilgi = HesapBilgi(self)
+    #     self.hesapBilgi.Hesap.show()
 
 
     def git(self):

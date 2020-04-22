@@ -26,7 +26,7 @@
    </widget>
    <widget class="QPushButton" name="btTarayici">
     <property name="enabled">
-     <bool>false</bool>
+     <bool>true</bool>
     </property>
     <property name="geometry">
      <rect>
@@ -49,8 +49,31 @@
       <x>20</x>
       <y>10</y>
       <width>441</width>
-      <height>241</height>
+      <height>151</height>
      </rect>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="txtUser">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>180</y>
+      <width>401</width>
+      <height>20</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="txtPass_2">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>210</y>
+      <width>401</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="echoMode">
+     <enum>QLineEdit::Password</enum>
     </property>
    </widget>
   </widget>

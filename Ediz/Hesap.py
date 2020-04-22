@@ -13,7 +13,7 @@ class HesapBilgi(QWidget):
     
 
     def GirisDoldur(self):
-        pass
+        print(self.bilgi)
     
     
     
