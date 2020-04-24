@@ -102,7 +102,7 @@
       <x>20</x>
       <y>270</y>
       <width>441</width>
-      <height>51</height>
+      <height>80</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout">
@@ -115,6 +115,13 @@
      </item>
      <item row="0" column="0">
       <widget class="QLineEdit" name="txtTakip"/>
+     </item>
+     <item row="2" column="0">
+      <widget class="QPushButton" name="btBirak">
+       <property name="text">
+        <string>Takibi Bırak</string>
+       </property>
+      </widget>
      </item>
     </layout>
    </widget>
