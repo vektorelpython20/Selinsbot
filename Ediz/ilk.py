@@ -22,29 +22,39 @@ class Uygulama(QMainWindow):
         # self.actionHesap_Bilgileri.triggered.connect(self.HesapWinAc)
         self.show()
 
-
+    def git(self):
+        self.selinsBot = SelinsBotCore(self.txtUser.text(),self.txtPass.text())
+        
 
     # def HesapWinAc(self):
     #     self.hesapBilgi = HesapBilgi(self)
     #     self.hesapBilgi.Hesap.show()
 
 
-    def git(self):
+class SelinsBotCore:
+    def __init__(self,username,password):
+        self.username = username
+        self.password = password
+        self.girisYap()
+    
+    def girisYap(self):
         self.browser = webdriver.Firefox(executable_path=r"Driver\geckodriver.exe")
         self.browser.get("https://www.instagram.com/accounts/login")
         time.sleep(4)
-        eposta = self.txtUser.text()
-        sifre = self.txtPass.text()
         epostaGiris = self.browser.find_element_by_name("username")
         sifreGiris = self.browser.find_element_by_name("password")
-
-        epostaGiris.send_keys(eposta)
-        sifreGiris.send_keys(sifre)
+        epostaGiris.send_keys(self.username)
+        sifreGiris.send_keys(self.password)
         sifreGiris.send_keys(Keys.ENTER)
+        #simdi değil
         time.sleep(5)
-        time.sleep()
-        
-
+        giris = self.browser.find_element_by_css_selector("button.aOOlW:nth-child(2)")
+        giris.click() 
+    
+    def KullaniciTakip(self,kullaniciAdi):
+        self.browser.get(r"https://www.instagram.com/{kullaniciadi}/")
+        time.sleep(4)
+        # self.browser.find_element_by_css_selector("button._5f5mN:nth-child(1)")
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
