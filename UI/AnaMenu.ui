@@ -63,7 +63,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QLineEdit" name="txtPass_2">
+   <widget class="QLineEdit" name="txtPass">
     <property name="geometry">
      <rect>
       <x>40</x>
