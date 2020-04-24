@@ -19,12 +19,16 @@ class Uygulama(QMainWindow):
               
     def Goster(self):
         self.btTarayici.clicked.connect(self.git)
-        # self.actionHesap_Bilgileri.triggered.connect(self.HesapWinAc)
+        self.btTakip.clicked.connect(self.Takip)
         self.show()
+
+    def Takip(self):
+        self.selinsBot.KullaniciTakip(self.txtTakip.text())
 
     def git(self):
         self.selinsBot = SelinsBotCore(self.txtUser.text(),self.txtPass.text())
-        
+    
+ 
 
     # def HesapWinAc(self):
     #     self.hesapBilgi = HesapBilgi(self)
@@ -52,9 +56,12 @@ class SelinsBotCore:
         giris.click() 
     
     def KullaniciTakip(self,kullaniciAdi):
-        self.browser.get(r"https://www.instagram.com/{kullaniciadi}/")
+        self.browser.get(f"https://www.instagram.com/{kullaniciAdi}/")
         time.sleep(4)
-        # self.browser.find_element_by_css_selector("button._5f5mN:nth-child(1)")
+        takipButton =  self.browser.find_element_by_css_selector("button._5f5mN:nth-child(1)")
+        if (takipButton.text != ""):
+            takipButton.click()
+            time.sleep(4)
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
