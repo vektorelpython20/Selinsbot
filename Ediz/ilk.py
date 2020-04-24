@@ -14,13 +14,15 @@ class Uygulama(QMainWindow):
     def __init__(self):
         super().__init__()
         uic.loadUi(r"UI\AnaMenu.ui",self)
-        self.bilgi = "deneme"
         self.Goster()       
 
               
     def Goster(self):
+        self.btTarayici.clicked.connect(self.git)
         # self.actionHesap_Bilgileri.triggered.connect(self.HesapWinAc)
         self.show()
+
+
 
     # def HesapWinAc(self):
     #     self.hesapBilgi = HesapBilgi(self)
@@ -29,7 +31,19 @@ class Uygulama(QMainWindow):
 
     def git(self):
         self.browser = webdriver.Firefox(executable_path=r"Driver\geckodriver.exe")
-        self.browser.get("https://www.instagram.com")
+        self.browser.get("https://www.instagram.com/accounts/login")
+        time.sleep(4)
+        eposta = self.txtUser.text()
+        sifre = self.txtPass.text()
+        epostaGiris = self.browser.find_element_by_name("username")
+        sifreGiris = self.browser.find_element_by_name("password")
+
+        epostaGiris.send_keys(eposta)
+        sifreGiris.send_keys(sifre)
+        sifreGiris.send_keys(Keys.ENTER)
+        time.sleep(5)
+        time.sleep()
+        
 
 
 if __name__ == "__main__":
