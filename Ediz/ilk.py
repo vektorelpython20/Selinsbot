@@ -63,7 +63,8 @@ class SelinsBotCore:
         time.sleep(self.bekle)
         giris = self.browser.find_element_by_css_selector("button.aOOlW:nth-child(2)")
         giris.click() 
-    
+
+ 
     def KullaniciTakip(self,kullaniciAdi):
         self.browser.get(f"https://www.instagram.com/{kullaniciAdi}/")
         time.sleep(self.bekle)
