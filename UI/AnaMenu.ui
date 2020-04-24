@@ -18,9 +18,9 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>330</y>
+      <y>420</y>
       <width>441</width>
-      <height>261</height>
+      <height>161</height>
      </rect>
     </property>
    </widget>
@@ -102,10 +102,17 @@
       <x>20</x>
       <y>270</y>
       <width>441</width>
-      <height>80</height>
+      <height>109</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout">
+     <item row="2" column="0">
+      <widget class="QPushButton" name="btBirak">
+       <property name="text">
+        <string>Takibi Bırak</string>
+       </property>
+      </widget>
+     </item>
      <item row="1" column="0">
       <widget class="QPushButton" name="btTakip">
        <property name="text">
@@ -116,10 +123,10 @@
      <item row="0" column="0">
       <widget class="QLineEdit" name="txtTakip"/>
      </item>
-     <item row="2" column="0">
-      <widget class="QPushButton" name="btBirak">
+     <item row="3" column="0">
+      <widget class="QPushButton" name="btLike">
        <property name="text">
-        <string>Takibi Bırak</string>
+        <string>İlk Foto Like</string>
        </property>
       </widget>
      </item>
