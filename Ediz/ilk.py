@@ -15,7 +15,6 @@ class Uygulama(QMainWindow):
         super().__init__()
         uic.loadUi(r"UI\AnaMenu.ui",self)
         self.Goster()       
-
               
     def Goster(self):
         self.btTarayici.clicked.connect(self.git)
@@ -33,10 +32,15 @@ class Uygulama(QMainWindow):
     def Takip(self):
         self.selinsBot.KullaniciTakip(self.txtTakip.text())
 
+    
+    def first_picture(self): 
+       self.selinsBot.likefoto()
+
+
     def git(self):
         self.selinsBot = SelinsBotCore(self.txtUser.text(),self.txtPass.text())
+  
     
- 
 
     # def HesapWinAc(self):
     #     self.hesapBilgi = HesapBilgi(self)
@@ -90,18 +94,35 @@ class SelinsBotCore:
     def ilkFotografLike(self,kullaniciAdi):
         self.browser.get(f"https://www.instagram.com/{kullaniciAdi}/")
         time.sleep(self.bekle)
-        self.browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-        ilkgonderi = self.browser.find_element_by_css_selector('div.KL4Bh:nth-child(1)')
-        self.browser.execute_script("arguments[0].click();", ilkgonderi)
-        time.sleep(self.bekle)
-        for i in range(20):
-            try:
-                begenDugmesi=self.browser.find_element_by_css_selector(f'button.wpO6b:nth-child({i})')
-                print("Tıkladım",i)
-            except:
-                print("Hata",i)
-        # begenDugmesi=self.browser.find_element_by_css_selector('svg._8-yf5:nth-child(1)')
-        begenDugmesi.click()
+
+        pic = self.browser.find_element_by_class_name("_9AhH0")    
+        pic.click()   # clicks on the first picture 
+        time.sleep(4)
+        like = self.browser.find_element_by_class_name("fr66n")
+        # like = self.browser.find_element_by_css_selector("span.FY9nT fr66n:nth:child(1)")
+        like.click()
+
+
+    def likefoto(self):
+        self.browser.get(f"https://www.instagram.com/")
+        time.sleep(4)
+        like = self.browser.find_element_by_class_name("fr66n")
+        # like = self.browser.find_element_by_css_selector("span.FY9nT fr66n:nth:child(1)")
+        like.click()
+        
+
+        # self.browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+        # ilkgonderi = self.browser.find_element_by_css_selector('div.KL4Bh:nth-child(1)')
+        # self.browser.execute_script("arguments[0].click();", ilkgonderi)
+        # time.sleep(self.bekle)
+        # for i in range(20):
+        #     try:
+        #         begenDugmesi=self.browser.find_element_by_css_selector(f'button.wpO6b:nth-child({i})')
+        #         print("Tıkladım",i)
+        #     except:
+        #         print("Hata",i)
+        # # begenDugmesi=self.browser.find_element_by_css_selector('svg._8-yf5:nth-child(1)')
+        # begenDugmesi.click()
 
 
 
