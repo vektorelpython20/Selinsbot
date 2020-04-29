@@ -1,11 +1,10 @@
-import time
+ import time
 import sys
 from PyQt5.QtWidgets import QApplication,QMainWindow,QPushButton
 from PyQt5 import uic
 from PyQt5.QtCore import pyqtSignal,pyqtSlot
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
-
 #------------------------------------------
 # from Hesap import HesapBilgi
 
